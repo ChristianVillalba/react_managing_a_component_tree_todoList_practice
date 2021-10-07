@@ -12,14 +12,14 @@ function App() {
   }
 
   function addItem() {
-    setItems(prevItems => {
+    setItems((prevItems) => {
       return [...prevItems, inputText];
     });
     setInputText("");
   }
 
   function deleteItem(id) {
-    setItems(prevItems => {
+    setItems((prevItems) => {
       return prevItems.filter((item, index) => {
         return index !== id;
       });
@@ -31,7 +31,8 @@ function App() {
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
-      <InputArea />
+      <InputArea writeItem={handleChange} submitItem={addItem} />
+
       <div>
         <ul>
           {items.map((todoItem, index) => (
